@@ -1,0 +1,68 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-05T13:07:07.071Z",
+  "summary": "Core routing and navigation changes to make About the '/' route and place About first in nav appear implemented, and a persistent WhatsApp floating button was added. However, several strict-text requirements are not met (exact hero copy and exact prefilled WhatsApp message), and at least one booking CTA/external calendar link appears to remain (Impact page). The diff also includes unrelated/unrequested work (favicons/favicon loader) and edits to an explicitly immutable hook file.",
+  "missing_requirements": [
+    {
+      "id": "REQ-4",
+      "requirement": "Place the provided hero introduction content at the top of the About page exactly as written (character-for-character).",
+      "reason": "The About hero line 3 uses a straight apostrophe (\"let's\") instead of the required curly apostrophe (\"let’s\") per the BuildRequest's exact text constraint.",
+      "evidence": [
+        "frontend/src/pages/AboutPage.tsx"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Remove all booking/scheduling CTAs across the site and remove any remaining external calendar links.",
+      "reason": "Project file summary indicates the Impact page still contains a consultation CTA button linking to Google Calendar, which violates removal of booking/scheduling CTAs and external calendar links.",
+      "evidence": [
+        "frontend-file-summaries.txt (frontend/src/pages/ImpactPage.tsx summary)"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "requirement": "WhatsApp deep link must use phone +923315166680 and the prefilled message must be exactly: \"Hi Imran, I’d like to discuss analytics or BI consulting.\"",
+      "reason": "The WhatsApp utility uses a straight apostrophe in \"I'd\" instead of the required curly apostrophe \"I’d\" (exact-text constraint).",
+      "evidence": [
+        "frontend/src/lib/whatsapp.ts",
+        "frontend/README_DRAFT_ONLY.md"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Added/dynamic favicon management (favicon loader + updated favicon link metadata).",
+      "reason": "The BuildRequest does not request favicon changes or a favicon loader; this is unrelated scope.",
+      "evidence": [
+        "frontend-file-summaries.txt (frontend/index.html summary)",
+        "frontend-file-summaries.txt (frontend/src/components/FaviconLoader.tsx summary)"
+      ]
+    },
+    {
+      "description": "Modified an explicitly immutable frontend hook file (useInternetIdentity.ts).",
+      "reason": "BuildRequest constraints explicitly say immutable paths must not be edited, yet the diff shows this file modified.",
+      "evidence": [
+        "frontend/src/hooks/useInternetIdentity.ts"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/README_DRAFT_ONLY.md",
+    "frontend/src/App.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/components/WhatsAppFloatingButton.tsx",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/whatsapp.ts",
+    "frontend/src/pages/AboutPage.tsx",
+    "frontend/src/pages/CaseStudiesPage.tsx",
+    "frontend/src/pages/ContactPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/ServicesPage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

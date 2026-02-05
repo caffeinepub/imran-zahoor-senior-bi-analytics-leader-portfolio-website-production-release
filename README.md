@@ -1,2 +1,3 @@
-# imran-zahoor-senior-bi-analytics-leader-portfolio-website-production-release
-Exported from Caffeine project: Imran Zahoor - Senior BI &amp; Analytics Leader Portfolio Website
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

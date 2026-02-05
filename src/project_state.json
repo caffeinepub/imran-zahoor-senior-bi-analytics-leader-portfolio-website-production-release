@@ -1,0 +1,334 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 4,
+  "summary": "Portfolio/marketing SPA for Imran Zahoor built with React/TanStack Router/Tailwind/shadcn-style components, shifting primary CTA from external scheduling links to a persistent WhatsApp chat CTA and making the About page the default landing route; updates requested to About-page hero copy/heading and overall mobile responsiveness, to be delivered in draft mode for review before publishing.",
+  "existing_features": [
+    {
+      "id": "IF-1",
+      "title": "SPA routing with shared layout (header/nav, mobile menu, footer)",
+      "synonyms": [
+        "TanStack Router navigation",
+        "Layout shell"
+      ],
+      "description": "Implements a multi-page single-page application using TanStack Router with a root Layout component that provides sticky navigation (desktop + mobile menu), route-based active styling, and a footer with quick links, consultation CTA, and LinkedIn link.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-2",
+      "title": "Home page marketing hero with rotating taglines and CTAs",
+      "synonyms": [
+        "Hero section",
+        "Rotating tagline banner"
+      ],
+      "description": "Home page includes a timed rotating headline/tagline, credibility/metrics bar, expertise highlight cards, and call-to-action buttons linking to case studies and an external Google Calendar booking page.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-3",
+      "title": "Services catalog page",
+      "synonyms": [
+        "Offerings page",
+        "Consulting services"
+      ],
+      "description": "Displays a curated set of BI/analytics service offerings with structured sections for problems solved, deliverables, and outcomes, presented in card-based UI with icons and a CTA to contact/booking.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-4",
+      "title": "Executive Impact Summary page",
+      "synonyms": [
+        "Impact page",
+        "Outcomes/metrics summary"
+      ],
+      "description": "Presents multiple impact sections (architecture/governance, dashboards, optimization, automation, enablement) with quantified metrics and an organizational benefits summary, ending with a consultation booking CTA.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-5",
+      "title": "About page with profile, education, and competencies",
+      "synonyms": [
+        "Bio page",
+        "Profile page"
+      ],
+      "description": "Shows a professional profile image, location, narrative bio, education history, “known for” highlights, and a badge list of core competencies.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-6",
+      "title": "Case studies listing with tabbed deep dives",
+      "synonyms": [
+        "Portfolio projects",
+        "Case study cards"
+      ],
+      "description": "Renders multiple case studies as cards with images and category badges. Each includes a tabbed interface (context, approach, tools, outcomes) and uses iconography for scannable storytelling.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-7",
+      "title": "Certifications and technical stack showcase",
+      "synonyms": [
+        "Credentials page",
+        "Skills/stack page"
+      ],
+      "description": "Lists professional certifications and organizes a technical stack by category with badges and icon-led cards, plus a summary competency/experience panel.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-8",
+      "title": "Contact form submission via FormSubmit.co (backendless)",
+      "synonyms": [
+        "Lead capture form",
+        "Email forwarding form"
+      ],
+      "description": "Implements a client-side contact form with required field checks, basic email validation, loading/submitted/error UI states, and toast notifications. Submits JSON payloads to FormSubmit.co’s AJAX endpoint without requiring a custom backend.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-9",
+      "title": "CV download from static assets",
+      "synonyms": [
+        "Resume download",
+        "PDF download"
+      ],
+      "description": "Provides a client-side download action that programmatically creates an anchor element and triggers download of a bundled PDF resume from the public/static assets directory, with toast feedback.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-10",
+      "title": "External consultation booking integration",
+      "synonyms": [
+        "Google Calendar booking link",
+        "Schedule a call"
+      ],
+      "description": "Integrates an external Google Calendar scheduling URL across multiple pages (header CTA, home CTAs, impact CTA, contact booking card), opening in a new tab with appropriate rel attributes.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-11",
+      "title": "Theming and design system (Tailwind + CSS tokens + dark mode)",
+      "synonyms": [
+        "Tailwind theme tokens",
+        "Dark mode support"
+      ],
+      "description": "Uses TailwindCSS with extended theme configuration and CSS variable color tokens (OKLCH) for a consistent enterprise visual identity. Dark mode is supported through next-themes with class-based switching.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-12",
+      "title": "Toast notification system",
+      "synonyms": [
+        "Sonner toasts",
+        "User feedback alerts"
+      ],
+      "description": "Uses Sonner’s Toaster to display success/error notifications for key UX flows (e.g., form validation/submission, download initiation).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-13",
+      "title": "Internet Identity authentication context (ICP)",
+      "synonyms": [
+        "@dfinity/auth-client integration",
+        "Identity provider context"
+      ],
+      "description": "Provides an InternetIdentityProvider that initializes AuthClient, loads a persisted identity on mount, and exposes login/logout/identity state with status flags and error handling.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-14",
+      "title": "Canister actor creation and caching (ICP)",
+      "synonyms": [
+        "useActor hook",
+        "Identity-aware actor"
+      ],
+      "description": "Implements a useActor hook that creates an authenticated or anonymous ICP canister actor depending on the current identity and caches it via react-query. On actor changes, it invalidates/refetches non-actor queries to keep dependent data consistent.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-15",
+      "title": "Motoko backend canister: blob storage management mixin",
+      "synonyms": [
+        "Storage mixin",
+        "Dead-blob GC tooling"
+      ],
+      "description": "Backend canister includes a storage mixin providing authorization management (gateway principals), dead blob enumeration and confirmation-based pruning, a forced GC trigger, and a cashier cycle refill/top-up mechanism guarded by an environment-configured principal.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-16",
+      "title": "Motoko HTTP outcalls utility module",
+      "synonyms": [
+        "IC http_request wrapper",
+        "HTTP GET/POST helpers"
+      ],
+      "description": "Provides reusable GET/POST HTTP outcall helpers with optional transform function, cycle budgeting, default headers (User-Agent and Idempotency-Key for POST), and UTF-8 decoding with traps on empty responses.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-17",
+      "title": "Backend readiness placeholder hook",
+      "synonyms": [
+        "useBackendReady",
+        "Future backend integration scaffold"
+      ],
+      "description": "Exposes a minimal hook that reports readiness based on actor availability and fetching state, serving as a placeholder for future backend-dependent queries/features.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "feature-set-the-about-page-as-the-default-landing-page-when-visiting-the-root-domain-path-so-entering-the-domain-loads-the-about-content-by-default",
+      "title": "Set the About page as the default landing page when visiting the root domain path ('/'), so entering the domain loads the About content by default.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-reorder-the-global-site-navigation-so-that-the-about-link-appears-first-in-the-navigation-sequence-desktop-and-mobile",
+      "title": "Reorder the global site navigation so that the About link appears first in the navigation sequence (desktop and mobile).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-about-page-to-remove-the-heading-text-about-me-entirely-and-ensure-the-words-about-me-do-not-appear-anywhere-on-the-about-page",
+      "title": "Update the About page to remove the heading text “About Me” entirely and ensure the words “About Me” do not appear anywhere on the About page.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-place-the-provided-hero-introduction-content-at-the-top-of-the-about-page-exactly-as-written-no-rewriting-shortening-or-paraphrasing-and-make-the-page-content-start-directly-with-this-hero-text",
+      "title": "Place the provided hero introduction content at the top of the About page exactly as written (no rewriting, shortening, or paraphrasing), and make the page content start directly with this hero text.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-adjust-the-about-page-layout-so-the-title-appears-immediately-below-the-profile-picture",
+      "title": "Adjust the About page layout so the title appears immediately below the profile picture.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-all-booking-scheduling-ctas-across-the-site-including-any-book-appointment-schedule-a-call-book-a-call-book-a-consultation-or-similar-and-replace-them-with-a-persistent-whatsapp-chat-entry-point",
+      "title": "Remove all booking/scheduling CTAs across the site (including any “Book Appointment”, “Schedule a Call”, “Book a Call”, “Book a Consultation”, or similar) and replace them with a persistent WhatsApp chat entry point.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-persistent-whatsapp-chat-button-visible-on-all-pages-floating-fixed-preferred-that-opens-a-whatsapp-chat-directly-to-923315166680-using-the-optional-pre-filled-message-hi-imran-i-d-like-to-discuss-analytics-or-bi-consulting-the-button-must-not-obstruct-page-content",
+      "title": "Add a persistent WhatsApp chat button visible on all pages (floating/fixed preferred) that opens a WhatsApp chat directly to +923315166680, using the optional pre-filled message: \"Hi Imran, I’d like to discuss analytics or BI consulting.\" The button must not obstruct page content.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-perform-a-mobile-responsiveness-optimization-pass-across-the-entire-website-to-ensure-readable-typography-mobile-friendly-navigation-touch-friendly-buttons-and-no-layout-breaks-on-small-and-medium-screen-sizes-android-and-ios",
+      "title": "Perform a mobile responsiveness optimization pass across the entire website to ensure readable typography, mobile-friendly navigation, touch-friendly buttons, and no layout breaks on small and medium screen sizes (Android and iOS).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-deliver-these-changes-as-a-draft-only-update-for-review-and-do-not-publish-take-the-site-live-until-explicit-user-approval-is-provided",
+      "title": "Deliver these changes as a draft-only update for review and do not publish/take the site live until explicit user approval is provided.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Set About page as default landing route and reorder navigation so About appears first",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Remove 'About Me' heading everywhere on About page; start content directly with hero intro and place title immediately below profile picture",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Update About page hero intro copy to exactly the user-provided 3-line text plus '→ Chat with me on WhatsApp' (no paraphrasing)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Mobile responsiveness pass across entire site (typography, navigation, touch targets, layout stability on small/medium screens)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Replace booking/scheduling CTAs with a persistent floating WhatsApp chat button on all pages (phone +923315166680, optional prefilled message)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Prepare changes in draft mode only and share draft for review; do not publish until approved",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "architectural_notes": [
+    "Frontend is a React SPA using TanStack Router with a shared Layout (sticky header/nav + footer) and page-per-route structure.",
+    "UI styling uses TailwindCSS with CSS-variable-driven OKLCH color tokens and dark mode via next-themes (class-based).",
+    "State/data utilities include @tanstack/react-query for caching and lifecycle management (notably for ICP actor creation).",
+    "Notifications use Sonner toast system for client-side UX feedback (form validation/submission, downloads).",
+    "ICP integration pattern: InternetIdentityProvider (AuthClient) provides an Identity; useActor creates an authenticated or anonymous canister actor depending on identity.",
+    "Backend is Motoko and assembled via mixins (include MixinStorage()), indicating a compositional canister architecture.",
+    "Backend blob storage management relies on low-level Prim APIs (e.g., dead blob enumeration/pruning, GC trigger), implying ICP platform-specific storage/GC workflows.",
+    "External integrations are intentionally backendless for key UX flows (FormSubmit.co for contact email forwarding; static assets for CV and favicons; external Google Calendar booking).",
+    "Primary site CTA is a persistent cross-page WhatsApp chat entry point; external scheduling/booking CTAs are removed/replaced.",
+    "Changes should be delivered as a draft/review build and not promoted to production until explicit approval."
+  ],
+  "known_issues": [
+    "React Query is initialized twice with two different QueryClient instances (in src/main.tsx and src/App.tsx), which can cause cache/provider confusion and duplicated network/query behavior.",
+    "frontend/src/pages/ExperiencePage.tsx is empty in the provided code, while repo summaries imply an implemented experience timeline; routing for an Experience page is also absent in App.tsx.",
+    "frontend/src/components/FaviconLoader.tsx is empty in the provided code, while repo summaries describe a backend-driven favicon loader; favicon handling appears to have shifted to static links in index.html.",
+    "Two different CSS files appear to exist with overlapping naming (frontend/src/index.css and frontend/index.css) and conflicting token sets; this can lead to inconsistent theming depending on what is actually imported/built.",
+    "Contact form posts directly to FormSubmit.co with a hard-coded recipient email; this may increase spam exposure and is not configurable via environment variables.",
+    "Client-side contact form only uses basic validation and disables captcha via _captcha=false; no honeypot/rate limiting is implemented.",
+    "CV download path contains spaces ('/assets/Resume - Imran Zahoor.pdf'); depending on hosting/static pipeline, URL encoding and caching headers may cause download issues.",
+    "Backend storage authorization list depends on an explicit update call (_caffeineStorageUpdateGatewayPrincipals); if not invoked, authorizedPrincipals remains empty and admin operations will trap.",
+    "Backend depends on CAFFFEINE_STORAGE_CASHIER_PRINCIPAL env var (note spelling); missing/misnamed env configuration will cause runtime traps when refill/update functions are called.",
+    "Process risk/regression: assistant messages indicate the site was taken live in production despite the requirement to remain in draft mode until explicit user approval; ensure no production deploy occurs until approved."
+  ],
+  "isFixRequest": false,
+  "generatedImages": [],
+  "gameProjectType": "none",
+  "projectName": "Imran Zahoor - Senior BI & Analytics Leader Portfolio Website",
+  "clarification_mode": "pro",
+  "clarification_rounds": 0
+}
