@@ -1,12 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { useNavigate } from '@tanstack/react-router';
-import { Shield, Database, BarChart3, Target, Zap, ArrowRight } from 'lucide-react';
-import { getWhatsAppLink } from '@/lib/whatsapp';
+import { Shield, Database, BarChart3, Target, Zap } from 'lucide-react';
+import WhatsAppCTAButton from '@/components/WhatsAppCTAButton';
 
 export default function ServicesPage() {
-  const navigate = useNavigate();
-
   const services = [
     {
       icon: Shield,
@@ -115,10 +111,6 @@ export default function ServicesPage() {
     },
   ];
 
-  const handleWhatsAppClick = () => {
-    window.open(getWhatsAppLink(), '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <div className="w-full">
       <section className="py-12 md:py-20">
@@ -146,7 +138,7 @@ export default function ServicesPage() {
                 <CardContent className="space-y-6 p-4 md:p-6 pt-0">
                   <div className="grid md:grid-cols-3 gap-4 md:gap-6">
                     <div>
-                      <h3 className="font-semibold mb-3 text-destructive text-sm md:text-base">Problems Solved</h3>
+                      <h3 className="font-semibold mb-3 text-[#22D3EE] text-sm md:text-base">Problems Solved</h3>
                       <ul className="space-y-2 text-xs md:text-sm text-muted-foreground">
                         {service.problems.map((problem, i) => (
                           <li key={i} className="flex items-start">
@@ -191,10 +183,7 @@ export default function ServicesPage() {
                 <p className="text-sm md:text-base text-muted-foreground">
                   Let's discuss how these services can transform your analytics capabilities
                 </p>
-                <Button size="lg" onClick={handleWhatsAppClick} className="h-12 md:h-14">
-                  Chat on WhatsApp
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                <WhatsAppCTAButton className="h-12 md:h-14" />
               </CardContent>
             </Card>
           </div>

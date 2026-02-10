@@ -1,15 +1,8 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { GraduationCap, MapPin, Award, Target } from 'lucide-react';
+import { GraduationCap, MapPin, Award, TrendingUp } from 'lucide-react';
 import { getWhatsAppLink } from '@/lib/whatsapp';
 
 export default function AboutPage() {
-  const knownFor = [
-    'Translating business strategy into scalable analytics architectures',
-    'Reducing report duplication, improving adoption, standardizing KPIs',
-    'Building high-trust executive reporting foundations',
-  ];
-
   return (
     <div className="w-full">
       <section className="py-12 md:py-20">
@@ -20,11 +13,11 @@ export default function AboutPage() {
               <div className="md:col-span-1">
                 <div className="flex flex-col items-center">
                   <img
-                    src="/assets/Imran Zahoor.png"
+                    src="/assets/Portfolio Profile-cropped - Chatgpt - modified.png"
                     alt="Imran Zahoor - Professional Headshot"
                     className="rounded-full w-full max-w-[280px] aspect-square object-cover shadow-xl ring-4 ring-primary/10"
                   />
-                  <div className="mt-6 space-y-3 text-center w-full">
+                  <div className="mt-3 space-y-1.5 text-center w-full">
                     <h1 className="text-2xl md:text-3xl font-bold">
                       Senior Business Intelligence and Analytics Leader
                     </h1>
@@ -62,7 +55,10 @@ export default function AboutPage() {
 
                 {/* Professional Overview */}
                 <div className="pt-4">
-                  <h2 className="text-xl md:text-2xl font-bold mb-4">Professional Overview</h2>
+                  <div className="flex items-center mb-4">
+                    <TrendingUp className="h-5 w-5 md:h-6 md:w-6 mr-2 text-primary" />
+                    <h2 className="text-xl md:text-2xl font-bold">Professional Overview</h2>
+                  </div>
                   <div className="space-y-4 text-sm md:text-base text-muted-foreground">
                     <p>
                       With over 20 years of experience in Business Intelligence and Analytics, I specialize
@@ -86,6 +82,44 @@ export default function AboutPage() {
               </div>
             </div>
 
+            {/* Selected Impact Snapshot */}
+            <div className="space-y-6">
+              <h2 className="text-xl md:text-2xl font-bold">Selected Impact Snapshot</h2>
+              
+              <div className="space-y-6">
+                <div>
+                  <h3 className="font-semibold text-base md:text-lg mb-2">Situation</h3>
+                  <p className="text-sm md:text-base text-muted-foreground">
+                    Leadership teams were relying on fragmented dashboards, inconsistent KPIs, and manually compiled reports—slowing decision-making and reducing trust in analytics.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-base md:text-lg mb-2">What I Delivered</h3>
+                  <ul className="space-y-2 text-sm md:text-base text-muted-foreground list-disc list-inside">
+                    <li>Designed governed semantic models and standardized KPI frameworks</li>
+                    <li>Built executive and operational dashboards aligned to decision needs</li>
+                    <li>Automated recurring reporting and optimized performance at the model level</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-base md:text-lg mb-2">Measurable Impact</h3>
+                  <ul className="space-y-2 text-sm md:text-base text-muted-foreground list-disc list-inside">
+                    <li>40% reduction in report duplication</li>
+                    <li>40–50% reduction in manual reporting effort</li>
+                    <li>30% improvement in dashboard performance</li>
+                    <li>95%+ data accuracy across enterprise reporting</li>
+                    <li>Reporting cycles reduced from days to minutes</li>
+                  </ul>
+                </div>
+
+                <p className="text-sm md:text-base text-muted-foreground italic">
+                  This snapshot represents the typical approach and outcomes of my BI and analytics engagements.
+                </p>
+              </div>
+            </div>
+
             {/* Education */}
             <Card>
               <CardContent className="p-4 md:p-6">
@@ -106,47 +140,32 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            {/* What I'm Known For */}
+            {/* Certifications */}
             <Card>
               <CardContent className="p-4 md:p-6">
                 <div className="flex items-center mb-4">
-                  <Target className="h-5 w-5 md:h-6 md:w-6 mr-2 text-primary" />
-                  <h2 className="text-xl md:text-2xl font-bold">What I'm Known For</h2>
+                  <Award className="h-5 w-5 md:h-6 md:w-6 mr-2 text-primary" />
+                  <h2 className="text-xl md:text-2xl font-bold">Certifications</h2>
                 </div>
                 <div className="space-y-3">
-                  {knownFor.map((item, index) => (
-                    <div key={index} className="flex items-start">
-                      <Award className="h-5 w-5 mr-3 mt-0.5 text-primary flex-shrink-0" />
-                      <p className="text-sm md:text-base text-muted-foreground">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Skills Overview */}
-            <Card>
-              <CardContent className="p-4 md:p-6">
-                <h2 className="text-xl md:text-2xl font-bold mb-4">Core Competencies</h2>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    'Power BI',
-                    'Microsoft Fabric',
-                    'DAX',
-                    'SQL',
-                    'Semantic Modeling',
-                    'KPI Governance',
-                    'Executive Dashboards',
-                    'ETL Pipelines',
-                    'Data Warehousing',
-                    'Performance Tuning',
-                    'BI Strategy',
-                    'Analytics Leadership',
-                  ].map((skill) => (
-                    <Badge key={skill} variant="secondary" className="text-xs md:text-sm">
-                      {skill}
-                    </Badge>
-                  ))}
+                  <div className="flex items-start">
+                    <Award className="h-5 w-5 mr-3 mt-0.5 text-primary flex-shrink-0" />
+                    <p className="text-sm md:text-base text-muted-foreground">
+                      Microsoft Certified: Fabric Analytics Engineer Associate
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <Award className="h-5 w-5 mr-3 mt-0.5 text-primary flex-shrink-0" />
+                    <p className="text-sm md:text-base text-muted-foreground">
+                      Microsoft Certified: Power BI Data Analyst
+                    </p>
+                  </div>
+                  <div className="flex items-start">
+                    <Award className="h-5 w-5 mr-3 mt-0.5 text-primary flex-shrink-0" />
+                    <p className="text-sm md:text-base text-muted-foreground">
+                      Business Analytics Certification (Professional Training using Excel, SQL, Tableau)
+                    </p>
+                  </div>
                 </div>
               </CardContent>
             </Card>

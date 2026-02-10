@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, TrendingUp, Target, Zap, BarChart3, Users, CheckCircle2 } from 'lucide-react';
+import { TrendingUp, Target, Zap, BarChart3, Users, CheckCircle2 } from 'lucide-react';
+import WhatsAppCTAButton from '@/components/WhatsAppCTAButton';
 
 export default function ImpactPage() {
   const impactSections = [
@@ -185,16 +185,7 @@ export default function ImpactPage() {
           </div>
 
           <div className="text-center">
-            <Button size="lg" asChild>
-              <a
-                href="https://calendar.app.google/fGD66tDixGBgL5oK7"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Calendar className="h-5 w-5 mr-2" />
-                Book a Consultation
-              </a>
-            </Button>
+            <WhatsAppCTAButton />
           </div>
         </div>
       </section>

@@ -1,4 +1,4 @@
-import { RouterProvider, createRouter, createRoute, createRootRoute } from '@tanstack/react-router';
+import { RouterProvider, createRouter, createRoute, createRootRoute, redirect } from '@tanstack/react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/sonner';
@@ -7,7 +7,6 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import CaseStudiesPage from './pages/CaseStudiesPage';
-import CertificationsPage from './pages/CertificationsPage';
 import ContactPage from './pages/ContactPage';
 import ImpactPage from './pages/ImpactPage';
 
@@ -62,10 +61,13 @@ const caseStudiesRoute = createRoute({
   component: CaseStudiesPage,
 });
 
+// Redirect /certifications to /about
 const certificationsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/certifications',
-  component: CertificationsPage,
+  beforeLoad: () => {
+    throw redirect({ to: '/' });
+  },
 });
 
 const contactRoute = createRoute({

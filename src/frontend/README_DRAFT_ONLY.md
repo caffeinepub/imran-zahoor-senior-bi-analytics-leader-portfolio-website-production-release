@@ -1,76 +1,41 @@
-# Draft Review Notes
+# DRAFT VERSION - FOR REVIEW ONLY
 
-This update is prepared in **DRAFT MODE ONLY** and must not be published to production without explicit user approval.
+## Version 26 Changes (Current Draft)
+**Profile Image Update - About Page**
+- Replaced profile image reference from "/assets/Imran Zahoor.png" to "/assets/Portfolio Profile-1.jpeg"
+- Image used exactly as uploaded without any transformations
+- Preserved all existing responsive styling (rounded-full, max-w-[280px], aspect-square, object-cover, shadow-xl, ring-4 ring-primary/10)
+- No changes to text, layout, or other About page elements
+- Responsive behavior maintained across desktop, tablet, and mobile breakpoints
 
-## Changes Implemented
+**Review Checklist:**
+- [ ] Profile image displays correctly on About page
+- [ ] Image maintains aspect ratio without distortion
+- [ ] Responsive behavior works on mobile, tablet, and desktop
+- [ ] No other About page elements were modified
+- [ ] Image quality and clarity are acceptable for executive branding
 
-### 1. Landing Page & Navigation
-- ✅ About section is now the default landing page at '/'
-- ✅ Navigation reordered with About appearing first
-- ✅ All existing routes remain functional
+---
 
-### 2. About Page Updates
-- ✅ "About Me" heading completely removed
-- ✅ Hero introduction text added exactly as provided (character-for-character)
-- ✅ Professional title placed immediately below profile picture
-- ✅ Layout optimized for mobile and desktop
+## Version 22 Changes (Still Active)
+**WhatsApp Button Consistency**
+- Replaced custom styled WhatsApp links with shared `WhatsAppCTAButton` component on:
+  - Home page (hero and CTA sections)
+  - Services page (bottom CTA)
+  - Impact page (bottom CTA)
+- All WhatsApp CTAs now use consistent styling, behavior, and link handling
+- Maintained existing visual hierarchy and spacing
 
-### 3. WhatsApp Integration
-- ✅ All booking/scheduling CTAs removed from:
-  - Header navigation
-  - Mobile menu
-  - Footer
-  - Home page
-  - Services page
-  - Contact page
-- ✅ Persistent WhatsApp floating button added (visible on all pages)
-- ✅ WhatsApp configuration:
-  - Phone: +923315166680
-  - Message: "Hi Imran, I'd like to discuss analytics or BI consulting."
-  - Opens in new tab/window
+**Review Checklist:**
+- [ ] All WhatsApp buttons work correctly across pages
+- [ ] Consistent styling and hover states
+- [ ] Mobile responsiveness maintained
+- [ ] Links open WhatsApp with correct pre-filled message
 
-### 4. Mobile Responsiveness
-- ✅ Responsive layouts across all pages
-- ✅ Touch-friendly navigation and buttons (min height 44-48px)
-- ✅ Readable typography on small screens
-- ✅ No horizontal scrolling on mobile widths (360-430px)
-- ✅ Proper spacing and padding adjustments
-- ✅ Safe area padding for floating button
+---
 
-## Review Checklist
-
-Before publishing, please verify:
-
-- [ ] About page displays as the landing page when visiting the root URL
-- [ ] Navigation order is correct (About first)
-- [ ] "About Me" heading is completely removed from About page
-- [ ] Hero introduction text on About page matches exactly:
-  - "I design analytics systems that executives trust."
-  - "I design governed Power BI semantic layers, KPI frameworks, and executive analytics that scale across regions and restore trust in metrics."
-  - "If you need analytics that reduce noise, improve adoption, and actually drive outcomes, let's talk."
-  - "→ Chat with me on WhatsApp"
-- [ ] Professional title appears directly below profile picture
-- [ ] No booking/scheduling CTAs remain anywhere on the site
-- [ ] WhatsApp floating button is visible on all pages
-- [ ] WhatsApp button opens chat with correct phone number and message
-- [ ] All pages are mobile-responsive without layout breaks
-- [ ] Touch targets are comfortable on mobile devices
-- [ ] Typography is readable on small screens
-
-## Files Modified
-
-- `frontend/src/App.tsx` - Routing updated (About as default)
-- `frontend/src/components/Layout.tsx` - Navigation reordered, booking CTAs removed
-- `frontend/src/components/WhatsAppFloatingButton.tsx` - New persistent floating button
-- `frontend/src/lib/whatsapp.ts` - WhatsApp link utility
-- `frontend/src/pages/AboutPage.tsx` - Hero text added, heading removed, mobile optimized
-- `frontend/src/pages/HomePage.tsx` - Booking CTAs replaced with WhatsApp, mobile optimized
-- `frontend/src/pages/ServicesPage.tsx` - Booking CTAs replaced with WhatsApp, mobile optimized
-- `frontend/src/pages/ContactPage.tsx` - Booking card replaced with WhatsApp card, mobile optimized
-- `frontend/src/pages/CaseStudiesPage.tsx` - Mobile responsiveness improvements
-- `frontend/src/index.css` - Mobile padding and safe area support
-- `frontend/tailwind.config.js` - Container padding adjustments for mobile
-
-## Next Steps
-
-Once you've reviewed and approved these changes, please confirm and I will publish the draft to production.
+## Important Notes
+- **DO NOT PUBLISH TO PRODUCTION** - This is a draft version for review only
+- Test all changes thoroughly before requesting production deployment
+- Verify responsive behavior on actual mobile devices
+- Check both light and dark mode appearances

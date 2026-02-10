@@ -1,205 +1,22 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Default About landing, updated About hero/layout, mobile responsiveness pass, and persistent WhatsApp CTA (draft-only)",
+  "title": "Tighten About page title/location vertical spacing in left column",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Make About the default view at '/' while preserving existing routes.",
-      "acceptanceCriteria": [
-        "Visiting '/' shows the About page content as the initial view (without requiring the user to click navigation).",
-        "Direct navigation to existing routes (e.g., /services, /case-studies) continues to work."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Update routing so the root path ('/') renders AboutPage by default while keeping existing routes working; ensure navigation/wiring remains intact after the change."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Reorder global navigation so 'About' is first across header (desktop/mobile) and footer quick links.",
-      "acceptanceCriteria": [
-        "In the header desktop navigation, the first nav item is 'About'.",
-        "In the mobile menu navigation, the first nav item is 'About'.",
-        "In the footer 'Quick Links' section, the first item shown is 'About' (and the ordering matches the new nav order)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/Layout.tsx",
-          "operation": "modify",
-          "description": "Reorder the navItems array so 'About' appears first, and ensure the desktop nav, mobile menu, and footer Quick Links reflect the same ordering. Continue using shadcn-ui Button components for nav interactions (Verify the component's usage instructions before implementing)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Remove 'About Me' heading/text entirely from the About page.",
-      "acceptanceCriteria": [
-        "The About page contains no visible heading or text that includes “About Me”.",
-        "The About page no longer renders the current H1 “About Me” heading."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/AboutPage.tsx",
-          "operation": "modify",
-          "description": "Remove the existing 'About Me' H1 and ensure the words 'About Me' do not appear anywhere in AboutPage content (including headings, body text, aria-labels, and alt text). Continue composing with existing shadcn-ui Card/Badge components where still needed (Verify the component's usage instructions before implementing)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Add the provided hero introduction text at the very top of the About page exactly as written.",
-      "acceptanceCriteria": [
-        "At the top of the About page, the hero section displays exactly these 4 lines in this order, with the same punctuation and wording:\n1) I design analytics systems that executives trust.\n2) I design governed Power BI semantic layers, KPI frameworks, and executive analytics that scale across regions and restore trust in metrics.\n3) If you need analytics that reduce noise, improve adoption, and actually drive outcomes, let’s talk.\n4) → Chat with me on WhatsApp",
-        "No other headings (including “About Me”) appear above or before this hero content.",
-        "The displayed hero text matches the user-provided text exactly (character-for-character)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/AboutPage.tsx",
-          "operation": "modify",
-          "description": "Insert a top-of-page hero block whose content starts the page and matches the provided 4 lines exactly character-for-character (including the arrow character and punctuation). If line 4 is made clickable, preserve the displayed text exactly while linking to the WhatsApp deep link. Continue using shadcn-ui components only as composition helpers as needed (Verify the component's usage instructions before implementing)."
-        },
-        {
-          "path": "frontend/src/lib/whatsapp.ts",
-          "operation": "create",
-          "description": "Add a small utility to generate the WhatsApp deep link for +923315166680 with the prefilled message exactly: \"Hi Imran, I’d like to discuss analytics or BI consulting.\" (ensure proper URL encoding without altering the source string)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Adjust About page layout so the title appears immediately below the profile picture.",
-      "acceptanceCriteria": [
-        "On the About page, a single title element is rendered directly beneath the profile photo in the profile column/area.",
-        "The layout remains readable and visually stable on both mobile and desktop breakpoints."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/AboutPage.tsx",
-          "operation": "modify",
-          "description": "Rework the About page profile column so the profile image is followed immediately by a single title element (e.g., the professional title), and ensure layout remains stable/readable at mobile and desktop breakpoints. Keep using existing shadcn-ui Card/Badge components as appropriate (Verify the component's usage instructions before implementing)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "summary": "Remove all booking/scheduling CTAs and external calendar links across the site UI.",
-      "acceptanceCriteria": [
-        "No visible UI elements contain booking/scheduling CTAs (e.g., “Book a Call”, “Schedule a Call”, “Book a Consultation”, “Schedule a Consultation”) in the header, mobile menu, footer, Home page, or any other page.",
-        "No remaining links/buttons navigate to the existing external calendar URL currently used in the UI."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/Layout.tsx",
-          "operation": "modify",
-          "description": "Remove header/mobile/footer booking CTAs (e.g., Calendar button) and remove any links to the external calendar URL. Replace these surfaces with WhatsApp chat entry points (text and labels must not imply booking/scheduling). Continue composing with shadcn-ui Button as needed (Verify the component's usage instructions before implementing)."
-        },
-        {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "modify",
-          "description": "Remove/replace all booking/scheduling CTAs and the external calendar URL in the hero and CTA sections; ensure remaining CTAs do not include booking/scheduling language. Use existing shadcn-ui Button/Card components for the replacement CTA styling (Verify the component's usage instructions before implementing)."
-        },
-        {
-          "path": "frontend/src/pages/ServicesPage.tsx",
-          "operation": "modify",
-          "description": "Remove/replace the 'Book a Consultation' CTA (and any similar booking language) so it no longer presents as scheduling/booking; ensure no calendar link is introduced. Use existing shadcn-ui Button/Card components for any replacement CTA (Verify the component's usage instructions before implementing)."
-        },
-        {
-          "path": "frontend/src/pages/ContactPage.tsx",
-          "operation": "modify",
-          "description": "Remove/replace the calendar booking card/CTA and eliminate the external calendar URL; ensure no booking/scheduling language remains in ContactPage UI. Continue composing with existing shadcn-ui Card/Button/Input/etc. components (Verify the component's usage instructions before implementing)."
-        }
-      ]
-    },
-    {
       "id": "REQ-7",
-      "summary": "Add a persistent floating WhatsApp chat button visible on all pages that opens chat to +923315166680 with the provided prefilled message.",
+      "summary": "Reduce vertical spacing under the role title and location in the About page left column while preserving all text, typography, alignment, and layout structure across breakpoints.",
       "acceptanceCriteria": [
-        "A WhatsApp chat button is present on every route/page and remains visible while navigating within the SPA.",
-        "Clicking the button opens WhatsApp chat directly to +923315166680 using a WhatsApp deep link (e.g., wa.me or api.whatsapp.com) and includes the provided prefilled message.",
-        "On small screens, the floating button does not cover critical interactive elements (e.g., primary CTAs, form submit buttons) and does not block reading of main content."
+        "In frontend/src/pages/AboutPage.tsx, the spacing for the title/location block under the profile image is reduced (e.g., by lowering the margin-top and/or vertical gaps) without altering any text content.",
+        "No font sizes, font weights, alignment, or grid/column structure are changed; only spacing-related Tailwind classes are modified.",
+        "On both mobile and desktop breakpoints, the role title and location sit closer together and/or closer to the profile image compared to current behavior, reducing the perceived empty space in the left column.",
+        "No regression to responsiveness: the layout remains centered and aligned as before across breakpoints."
       ],
       "file_operations": [
-        {
-          "path": "frontend/src/components/WhatsAppFloatingButton.tsx",
-          "operation": "create",
-          "description": "Create a floating/fixed WhatsApp button component that uses the shared WhatsApp deep link (phone: +923315166680; message exactly: \"Hi Imran, I’d like to discuss analytics or BI consulting.\") and is positioned to avoid obstructing content. Compose UI using shadcn-ui Button if appropriate (Verify the component's usage instructions before implementing)."
-        },
-        {
-          "path": "frontend/src/components/Layout.tsx",
-          "operation": "modify",
-          "description": "Wire the persistent WhatsAppFloatingButton into the global layout so it appears on all routes/pages and remains visible during SPA navigation. Ensure placement does not obstruct page content, especially on mobile. Continue composing with shadcn-ui Button where appropriate (Verify the component's usage instructions before implementing)."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add minimal global styling support (if needed) for safe-area aware floating button spacing and to prevent content obstruction on small screens (e.g., ensuring adequate bottom padding where necessary)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "summary": "Perform a mobile responsiveness optimization pass across the site for typography, navigation usability, touch targets, and preventing layout breaks.",
-      "acceptanceCriteria": [
-        "All pages render without horizontal scrolling on common mobile widths (e.g., ~360–430px) unless intentionally required for a specific component.",
-        "Navigation is usable on mobile (menu opens/closes reliably; tap targets are comfortably touchable).",
-        "Body text and headings remain readable on mobile without overlapping, clipping, or excessive truncation.",
-        "Key buttons/links meet touch-friendly sizing expectations and are not too close together on mobile."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/Layout.tsx",
-          "operation": "modify",
-          "description": "Improve header/mobile menu responsiveness: ensure mobile menu tap targets are touch-friendly, spacing is comfortable, and menu open/close remains reliable. Continue composing with shadcn-ui Button for consistent sizing (Verify the component's usage instructions before implementing)."
-        },
         {
           "path": "frontend/src/pages/AboutPage.tsx",
           "operation": "modify",
-          "description": "Adjust About page spacing/typography/grid behavior to avoid mobile layout breaks and improve readability while preserving the required hero text and the profile/title placement. Keep composition with existing shadcn-ui components (Verify the component's usage instructions before implementing)."
-        },
-        {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "modify",
-          "description": "Update Home page layout for mobile readability and touch targets after CTA changes; ensure hero text/buttons/cards stack cleanly with no overflow. Use existing shadcn-ui components as needed (Verify the component's usage instructions before implementing)."
-        },
-        {
-          "path": "frontend/src/pages/CaseStudiesPage.tsx",
-          "operation": "modify",
-          "description": "Tighten responsive behavior for case study cards/tabs/images to prevent overflow/horizontal scrolling on small screens; keep content readable and tap targets usable. Continue composing with shadcn-ui Tabs/Card/Badge components (Verify the component's usage instructions before implementing)."
-        },
-        {
-          "path": "frontend/src/pages/ServicesPage.tsx",
-          "operation": "modify",
-          "description": "Ensure services cards and section CTA area remain readable and stable on mobile with touch-friendly buttons and no layout breaks. Continue composing with shadcn-ui Card/Button components (Verify the component's usage instructions before implementing)."
-        },
-        {
-          "path": "frontend/src/pages/ContactPage.tsx",
-          "operation": "modify",
-          "description": "Ensure contact form fields/buttons and right-side cards are mobile-friendly (stacking, spacing, touch targets) and do not overflow. Continue composing with shadcn-ui Input/Textarea/Button/Card components (Verify the component's usage instructions before implementing)."
-        },
-        {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Adjust Tailwind container padding/screen settings (if needed) to reduce mobile side padding and help avoid horizontal overflow while keeping desktop layout consistent."
-        }
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "summary": "Prepare changes as draft-only for review and avoid any publish/live actions.",
-      "acceptanceCriteria": [
-        "A new draft build is produced that includes all requested changes.",
-        "No action is taken to deploy/publish the draft to production/live without the user explicitly requesting it."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/README_DRAFT_ONLY.md",
-          "operation": "create",
-          "description": "Add a draft-only review note documenting that this update is intended for draft review and must not be published/deployed live without explicit user approval, including a checklist for verifying the WhatsApp CTA replacement and About hero text exactness."
+          "description": "Adjust only spacing-related Tailwind classes in the left-column title/location block under the profile image (e.g., reduce the container's top margin like mt-6 and/or reduce vertical gap like space-y-3) to decrease empty vertical space while keeping text, typography classes, alignment, and grid/column structure unchanged on both mobile and desktop."
         }
       ]
     }

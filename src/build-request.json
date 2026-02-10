@@ -1,192 +1,42 @@
 {
   "kind": "build_request",
-  "title": "Make About the default landing page, update About hero copy, improve mobile responsiveness, and replace booking CTAs with persistent WhatsApp chat (draft only)",
+  "title": "Reduce vertical spacing under role title and location in About section",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Set the About page as the default landing page when visiting the root domain path ('/'), so entering the domain loads the About content by default.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-9"
-        ],
-        "quotes": [
-          "Set the About section as the default landing page when someone enters my domain in the browser."
-        ]
-      },
-      "acceptanceCriteria": [
-        "Visiting '/' shows the About page content as the initial view (without requiring the user to click navigation).",
-        "Direct navigation to existing routes (e.g., /services, /case-studies) continues to work."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Reorder the global site navigation so that the About link appears first in the navigation sequence (desktop and mobile).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-9"
-        ],
-        "quotes": [
-          "Reorder the site navigation so the About section appears first in the sequence."
-        ]
-      },
-      "acceptanceCriteria": [
-        "In the header desktop navigation, the first nav item is 'About'.",
-        "In the mobile menu navigation, the first nav item is 'About'.",
-        "In the footer 'Quick Links' section, the first item shown is 'About' (and the ordering matches the new nav order)."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Update the About page to remove the heading text “About Me” entirely and ensure the words “About Me” do not appear anywhere on the About page.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-9"
-        ],
-        "quotes": [
-          "Remove the heading “About Me” completely.",
-          "Do not display the words “About Me” anywhere on the About page."
-        ]
-      },
-      "acceptanceCriteria": [
-        "The About page contains no visible heading or text that includes “About Me”.",
-        "The About page no longer renders the current H1 “About Me” heading."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Place the provided hero introduction content at the top of the About page exactly as written (no rewriting, shortening, or paraphrasing), and make the page content start directly with this hero text.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-9"
-        ],
-        "quotes": [
-          "Place the following hero content at the top of the About page:\n\nI design analytics systems that executives trust.\nI design governed Power BI semantic layers, KPI frameworks, and executive analytics that scale across regions and restore trust in metrics.\nIf you need analytics that reduce noise, improve adoption, and actually drive outcomes, let’s talk.\n\n→ Chat with me on WhatsApp\n\nDo not rewrite, shorten, or paraphrase this text."
-        ]
-      },
-      "acceptanceCriteria": [
-        "At the top of the About page, the hero section displays exactly these 4 lines in this order, with the same punctuation and wording:\n1) I design analytics systems that executives trust.\n2) I design governed Power BI semantic layers, KPI frameworks, and executive analytics that scale across regions and restore trust in metrics.\n3) If you need analytics that reduce noise, improve adoption, and actually drive outcomes, let’s talk.\n4) → Chat with me on WhatsApp",
-        "No other headings (including “About Me”) appear above or before this hero content.",
-        "The displayed hero text matches the user-provided text exactly (character-for-character)."
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Adjust the About page layout so the title appears immediately below the profile picture.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-9"
-        ],
-        "quotes": [
-          "The title should appear immediately below my profile picture."
-        ]
-      },
-      "acceptanceCriteria": [
-        "On the About page, a single title element is rendered directly beneath the profile photo in the profile column/area.",
-        "The layout remains readable and visually stable on both mobile and desktop breakpoints."
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Remove all booking/scheduling CTAs across the site (including any “Book Appointment”, “Schedule a Call”, “Book a Call”, “Book a Consultation”, or similar) and replace them with a persistent WhatsApp chat entry point.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-9"
-        ],
-        "quotes": [
-          "Remove any “Book Appointment”, “Schedule a Call”, or similar booking buttons."
-        ]
-      },
-      "acceptanceCriteria": [
-        "No visible UI elements contain booking/scheduling CTAs (e.g., “Book a Call”, “Schedule a Call”, “Book a Consultation”, “Schedule a Consultation”) in the header, mobile menu, footer, Home page, or any other page.",
-        "No remaining links/buttons navigate to the existing external calendar URL currently used in the UI."
-      ]
-    },
-    {
       "id": "REQ-7",
-      "text": "Add a persistent WhatsApp chat button visible on all pages (floating/fixed preferred) that opens a WhatsApp chat directly to +923315166680, using the optional pre-filled message: \"Hi Imran, I’d like to discuss analytics or BI consulting.\" The button must not obstruct page content.",
+      "text": "In the About page left column (profile image + title block), reduce the vertical spacing below the role title and location (“Senior Business Intelligence and Analytics Leader” and “Islamabad, Pakistan”) so the left column does not appear visually empty. Adjust spacing only (no text changes, no font changes, no layout restructuring), and ensure the updated spacing is applied consistently on both desktop and mobile layouts.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-9"
+          "msg-6",
+          "msg-8"
         ],
         "quotes": [
-          "Add a persistent WhatsApp chat button that is visible on all pages.",
-          "The button should open a WhatsApp chat directly when clicked.",
-          "Phone number: +923315166680",
-          "Optional pre-filled message (recommended):\n\nHi Imran, I’d like to discuss analytics or BI consulting.",
-          "Placement can be floating or fixed, but it must not obstruct content."
+          "Reduce the vertical spacing below the role title and location (“Senior Business Intelligence and Analytics Leader” and “Islamabad, Pakistan”) in the About section so the left column does not appear visually empty.",
+          "Adjust spacing only (no text changes, no font changes, no layout restructuring). Maintain alignment and responsiveness.",
+          "Ensure the spacing adjustment is applied consistently across both desktop and mobile layouts.",
+          "yes please proceede"
         ]
       },
       "acceptanceCriteria": [
-        "A WhatsApp chat button is present on every route/page and remains visible while navigating within the SPA.",
-        "Clicking the button opens WhatsApp chat directly to +923315166680 using a WhatsApp deep link (e.g., wa.me or api.whatsapp.com) and includes the provided prefilled message.",
-        "On small screens, the floating button does not cover critical interactive elements (e.g., primary CTAs, form submit buttons) and does not block reading of main content."
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Perform a mobile responsiveness optimization pass across the entire website to ensure readable typography, mobile-friendly navigation, touch-friendly buttons, and no layout breaks on small and medium screen sizes (Android and iOS).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-9"
-        ],
-        "quotes": [
-          "Optimize the entire website for mobile phones.",
-          "Responsive layout across Android and iOS",
-          "Readable typography",
-          "Mobile-friendly navigation",
-          "Touch-friendly buttons",
-          "The site should function smoothly on small and medium screen sizes without layout breaks."
-        ]
-      },
-      "acceptanceCriteria": [
-        "All pages render without horizontal scrolling on common mobile widths (e.g., ~360–430px) unless intentionally required for a specific component.",
-        "Navigation is usable on mobile (menu opens/closes reliably; tap targets are comfortably touchable).",
-        "Body text and headings remain readable on mobile without overlapping, clipping, or excessive truncation.",
-        "Key buttons/links meet touch-friendly sizing expectations and are not too close together on mobile."
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "Deliver these changes as a draft-only update for review and do not publish/take the site live until explicit user approval is provided.",
-      "target": "unknown",
-      "source": {
-        "messageIds": [
-          "msg-9"
-        ],
-        "quotes": [
-          "Apply all changes in draft mode only.",
-          "Do not publish the site yet.",
-          "Share the draft with me once ready so I can review and approve before going live."
-        ]
-      },
-      "acceptanceCriteria": [
-        "A new draft build is produced that includes all requested changes.",
-        "No action is taken to deploy/publish the draft to production/live without the user explicitly requesting it."
+        "In frontend/src/pages/AboutPage.tsx, the spacing for the title/location block under the profile image is reduced (e.g., by lowering the margin-top and/or vertical gaps) without altering any text content.",
+        "No font sizes, font weights, alignment, or grid/column structure are changed; only spacing-related Tailwind classes are modified.",
+        "On both mobile and desktop breakpoints, the role title and location sit closer together and/or closer to the profile image compared to current behavior, reducing the perceived empty space in the left column.",
+        "No regression to responsiveness: the layout remains centered and aligned as before across breakpoints."
       ]
     }
   ],
   "constraints": [
-    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui (compose only).",
-    "Keep backend as a single Motoko actor; no backend changes are required for this request.",
-    "Use the hero intro text exactly as provided; do not paraphrase, shorten, or rewrite.",
-    "Remove all booking/scheduling CTAs and their external calendar links from the UI.",
-    "WhatsApp phone number must be exactly +923315166680; prefilled message must be exactly: \"Hi Imran, I’d like to discuss analytics or BI consulting.\"",
-    "Changes must be prepared in draft mode only; do not publish without explicit approval."
+    "Adjust spacing only; do not change any text, copy, or content.",
+    "Do not change fonts (family/weight/size) or typography styling.",
+    "Do not restructure the layout (no grid changes, no moving elements between columns).",
+    "Maintain existing alignment and responsiveness across desktop and mobile."
   ],
   "nonGoals": [
-    "Add new pages or new portfolio content beyond the specified About hero text/layout changes.",
-    "Introduce third-party chat widgets or non-WhatsApp messaging channels.",
-    "Implement backend-driven contact/chat features (WhatsApp deep link only).",
-    "Refactor unrelated architecture issues (e.g., React Query double initialization) unless required to complete the requested changes."
+    "Changing the profile image, About page content, or adding new elements to fill space.",
+    "Any changes to other sections (Professional Overview, Selected Impact Snapshot, Education, Certifications).",
+    "Backend changes or data/model changes."
   ],
   "imageRequirements": {
     "required": [],
@@ -195,9 +45,7 @@
   "userProfileUpdate": {
     "goalsToAdd": [],
     "goalsToRemove": [],
-    "preferencesToAdd": [
-      "Prefer draft-only releases for review before publishing changes to production."
-    ],
+    "preferencesToAdd": [],
     "preferencesToRemove": [],
     "miscToAdd": [],
     "miscToRemove": [],

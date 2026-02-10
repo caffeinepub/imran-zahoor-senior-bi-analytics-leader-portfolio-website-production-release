@@ -72,8 +72,19 @@
     body {
         @apply bg-background text-foreground;
         font-feature-settings: "rlig" 1, "calt" 1;
+        /* Base font size for mobile: 16px */
+        font-size: 16px;
+        line-height: 1.6;
         /* Add safe padding for mobile devices to prevent content being hidden by floating button */
         padding-bottom: env(safe-area-inset-bottom);
+    }
+    
+    /* Desktop typography: 18px body text */
+    @media (min-width: 768px) {
+        body {
+            font-size: 18px;
+            line-height: 1.7;
+        }
     }
     
     /* Smooth scrolling */
@@ -104,6 +115,7 @@
 @layer base {
     h1, h2, h3, h4, h5, h6 {
         @apply font-bold tracking-tight;
+        line-height: 1.2;
     }
     
     h1 {
@@ -116,6 +128,16 @@
     
     h3 {
         @apply text-xl md:text-2xl lg:text-3xl;
+    }
+    
+    p {
+        line-height: 1.6;
+    }
+    
+    @media (min-width: 768px) {
+        p {
+            line-height: 1.7;
+        }
     }
 }
 

@@ -1,166 +1,34 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-05T13:07:07.109Z",
+  "generatedAt": "2026-02-10T03:22:12.358Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 9,
-    "implemented": 9,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-1",
-        "summary": "Set the About page as the default landing page when visiting the root domain path ('/'), so entering the domain loads the About content by default.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/App.tsx"
-        ]
-      },
-      {
-        "id": "REQ-2",
-        "summary": "Reorder the global site navigation so that the About link appears first in the navigation sequence (desktop and mobile).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/Layout.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/Layout.tsx"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "Update the About page to remove the heading text “About Me” entirely and ensure the words “About Me” do not appear anywhere on the About page.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/AboutPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/AboutPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-4",
-        "summary": "Place the provided hero introduction content at the top of the About page exactly as written (no rewriting, shortening, or paraphrasing), and make the page content start directly with this hero text.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/AboutPage.tsx",
-          "frontend/src/lib/whatsapp.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/AboutPage.tsx",
-          "frontend/src/lib/whatsapp.ts"
-        ]
-      },
-      {
-        "id": "REQ-5",
-        "summary": "Adjust the About page layout so the title appears immediately below the profile picture.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/AboutPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/AboutPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-6",
-        "summary": "Remove all booking/scheduling CTAs across the site (including any “Book Appointment”, “Schedule a Call”, “Book a Call”, “Book a Consultation”, or similar) and replace them with a persistent WhatsApp chat entry point.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/Layout.tsx",
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/src/pages/ServicesPage.tsx",
-          "frontend/src/pages/ContactPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/Layout.tsx",
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/src/pages/ServicesPage.tsx",
-          "frontend/src/pages/ContactPage.tsx"
-        ]
-      },
-      {
         "id": "REQ-7",
-        "summary": "Add a persistent WhatsApp chat button visible on all pages (floating/fixed preferred) that opens a WhatsApp chat directly to +923315166680, using the optional pre-filled message: \"Hi Imran, I’d like to discuss analytics or BI consulting.\" The button must not obstruct page content.",
+        "summary": "In the About page left column (profile image + title block), reduce the vertical spacing below the role title and location (“Senior Business Intelligence and Analytics Leader” and “Islamabad, Pakistan”) so the left column does not appear visually empty. Adjust spacing only (no text changes, no font changes, no layout restructuring), and ensure the updated spacing is applied consistently on both desktop and mobile layouts.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/WhatsAppFloatingButton.tsx",
-          "frontend/src/components/Layout.tsx",
-          "frontend/src/index.css"
+          "frontend/src/pages/AboutPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/WhatsAppFloatingButton.tsx",
-          "frontend/src/components/Layout.tsx",
-          "frontend/src/index.css"
-        ]
-      },
-      {
-        "id": "REQ-8",
-        "summary": "Perform a mobile responsiveness optimization pass across the entire website to ensure readable typography, mobile-friendly navigation, touch-friendly buttons, and no layout breaks on small and medium screen sizes (Android and iOS).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/Layout.tsx",
-          "frontend/src/pages/AboutPage.tsx",
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/src/pages/CaseStudiesPage.tsx",
-          "frontend/src/pages/ServicesPage.tsx",
-          "frontend/src/pages/ContactPage.tsx",
-          "frontend/tailwind.config.js"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/Layout.tsx",
-          "frontend/src/pages/AboutPage.tsx",
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/src/pages/CaseStudiesPage.tsx",
-          "frontend/src/pages/ServicesPage.tsx",
-          "frontend/src/pages/ContactPage.tsx",
-          "frontend/tailwind.config.js"
-        ]
-      },
-      {
-        "id": "REQ-9",
-        "summary": "Deliver these changes as a draft-only update for review and do not publish/take the site live until explicit user approval is provided.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/README_DRAFT_ONLY.md"
-        ],
-        "matchedFiles": [
-          "frontend/README_DRAFT_ONLY.md"
+          "frontend/src/pages/AboutPage.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "build-template/Dockerfile",
-    "build-template/LICENSE",
-    "build-template/README.md",
-    "build-template/deploy.sh",
-    "build-template/icp.yaml",
-    "build-template/src/backend/canister.yaml",
-    "build-template/src/frontend/canister.yaml",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/README_DRAFT_ONLY.md",
-    "frontend/src/App.tsx",
-    "frontend/src/components/Layout.tsx",
-    "frontend/src/components/WhatsAppFloatingButton.tsx",
-    "frontend/src/hooks/useInternetIdentity.ts",
-    "frontend/src/index.css",
-    "frontend/src/lib/whatsapp.ts",
     "frontend/src/pages/AboutPage.tsx",
-    "frontend/src/pages/CaseStudiesPage.tsx",
-    "frontend/src/pages/ContactPage.tsx",
-    "frontend/src/pages/HomePage.tsx",
-    "frontend/src/pages/ServicesPage.tsx",
-    "frontend/tailwind.config.js",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

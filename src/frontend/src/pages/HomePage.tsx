@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useNavigate } from '@tanstack/react-router';
-import { ArrowRight, CheckCircle2, Database, BarChart3, Shield, Zap } from 'lucide-react';
+import { CheckCircle2, Database, BarChart3, Shield, Zap } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { getWhatsAppLink } from '@/lib/whatsapp';
+import WhatsAppCTAButton from '@/components/WhatsAppCTAButton';
 
 const taglines = [
   'Enterprise BI that leaders trust.',
@@ -48,10 +48,6 @@ export default function HomePage() {
     },
   ];
 
-  const handleWhatsAppClick = () => {
-    window.open(getWhatsAppLink(), '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <div className="w-full">
       {/* Hero Section */}
@@ -73,14 +69,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                onClick={handleWhatsAppClick}
-                className="text-base h-12 md:h-14"
-              >
-                Chat on WhatsApp
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <WhatsAppCTAButton className="text-base h-12 md:h-14" />
               <Button
                 size="lg"
                 variant="outline"
@@ -160,10 +149,7 @@ export default function HomePage() {
                 Let's discuss how enterprise BI governance and semantic modeling can elevate your
                 organization's decision-making capabilities.
               </p>
-              <Button size="lg" onClick={handleWhatsAppClick} className="h-12 md:h-14">
-                Chat on WhatsApp
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <WhatsAppCTAButton className="h-12 md:h-14" />
             </CardContent>
           </Card>
         </div>

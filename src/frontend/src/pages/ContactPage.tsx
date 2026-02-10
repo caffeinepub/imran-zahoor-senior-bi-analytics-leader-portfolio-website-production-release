@@ -5,7 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useState } from 'react';
 import { toast } from 'sonner';
-import { Mail, Download, Loader2, CheckCircle2, AlertCircle, MessageCircle } from 'lucide-react';
+import { Mail, Loader2, CheckCircle2, AlertCircle, MessageCircle } from 'lucide-react';
 import { getWhatsAppLink } from '@/lib/whatsapp';
 
 export default function ContactPage() {
@@ -79,19 +79,6 @@ export default function ContactPage() {
     }
   };
 
-  const handleCVDownload = () => {
-    // Create a temporary link and trigger download
-    const link = document.createElement('a');
-    link.href = '/assets/Resume - Imran Zahoor.pdf';
-    link.download = 'Resume - Imran Zahoor.pdf';
-    link.type = 'application/pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    toast.success('CV download started');
-  };
-
   const handleWhatsAppClick = () => {
     window.open(getWhatsAppLink(), '_blank', 'noopener,noreferrer');
   };
@@ -107,7 +94,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 md:gap-10">
             {/* Contact Form */}
             <Card>
               <CardHeader className="p-4 md:p-6">
@@ -202,7 +189,7 @@ export default function ContactPage() {
             </Card>
 
             {/* Additional Options */}
-            <div className="space-y-6">
+            <div className="space-y-8">
               {/* WhatsApp Chat */}
               <Card>
                 <CardHeader className="p-4 md:p-6">
@@ -229,30 +216,6 @@ export default function ContactPage() {
                   <p className="text-xs text-muted-foreground text-center">
                     Opens WhatsApp chat directly
                   </p>
-                </CardContent>
-              </Card>
-
-              {/* CV Download */}
-              <Card>
-                <CardHeader className="p-4 md:p-6">
-                  <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
-                    <Download className="h-5 w-5" />
-                    Download CV
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4 p-4 md:p-6 pt-0">
-                  <p className="text-xs md:text-sm text-muted-foreground">
-                    Get a comprehensive overview of my experience, certifications, and technical
-                    expertise.
-                  </p>
-                  <Button
-                    variant="outline"
-                    className="w-full h-11 md:h-12"
-                    onClick={handleCVDownload}
-                  >
-                    <Download className="mr-2 h-4 w-4" />
-                    Download CV (PDF)
-                  </Button>
                 </CardContent>
               </Card>
 

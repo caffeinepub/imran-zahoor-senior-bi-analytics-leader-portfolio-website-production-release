@@ -1,7 +1,7 @@
 import { Outlet, useNavigate, useRouterState } from '@tanstack/react-router';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SiLinkedin } from 'react-icons/si';
 import WhatsAppFloatingButton from './WhatsAppFloatingButton';
 
@@ -18,7 +18,6 @@ export default function Layout() {
     { label: 'Services', path: '/services' },
     { label: 'Impact', path: '/impact' },
     { label: 'Case Studies', path: '/case-studies' },
-    { label: 'Certifications', path: '/certifications' },
     { label: 'Contact', path: '/contact' },
   ];
 
@@ -26,6 +25,11 @@ export default function Layout() {
     navigate({ to: path });
     setMobileMenuOpen(false);
   };
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [routerState.location.pathname]);
 
   return (
     <div className="min-h-screen flex flex-col">
